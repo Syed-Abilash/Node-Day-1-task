@@ -3,10 +3,10 @@ import fs from 'fs';
 import {format } from 'date-fns';
 import {log} from 'console'
 const app = express();
-const PORT = 8000;
+const PORT = 8001;
 
 app.get('/', (req,res)=>{
-    res.status(200).json({message:"Vanakkam da mapala,theni la irrunthu"})
+    res.status(200).json({message:"give the end point /write/read"})
 })
 app.get('/write',(req,res)=>{
     let today = format(new Date(), 'dd-mm-yyyy-hh-mm-ss')
@@ -22,7 +22,8 @@ app.get('/read', (req, res) => {
     fs.writeFileSync(filePath, `${today}`, 'utf8')
     let dataTime = fs.readFileSync(filePath, 'utf8')
     res.status(200).send(dataTime)
-    
+})
+
 app.listen(PORT,()=>{
     console.log(`app is running in the port = ${PORT}`);
 })
