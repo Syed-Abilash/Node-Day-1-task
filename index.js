@@ -6,7 +6,7 @@ const app = express();
 const PORT = 8001;
 
 app.get('/', (req,res)=>{
-    res.status(200).json({message:"give the end point /write/read"})
+    res.status(200).json({message:"give the end point /read"})
 })
 app.get('/write',(req,res)=>{
     let today = format(new Date(), 'dd-mm-yyyy-hh-mm-ss')
